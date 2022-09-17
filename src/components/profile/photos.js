@@ -45,6 +45,8 @@ export default function Photos({ photosCollection }) {
                                     {photo.comments.length}
                                 </p>
                             </div>
+                            <div className='fixed h-full top-0 left-0 right-0 bg-transparent hidden'>asedfsadf
+                            </div>
                         </div>
                     ))
                 ) : null}

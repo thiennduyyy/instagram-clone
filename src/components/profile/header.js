@@ -47,6 +47,9 @@ export default function Header({
                 {profileUsername && (<img  className="rounded-full h-40 w-40 object-cover flex"
                     alt={`${profileUsername} profile avatar`}
                     src={`/images/avatars/${profileUsername}.jpg`}
+                    onError={(e) => {
+                        e.target.src = '/images/avatars/default.png';
+                    }}
                 />)}
             </div>
             <div className="flex items-center justify-center flex-col col-span-2">

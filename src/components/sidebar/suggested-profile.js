@@ -17,7 +17,10 @@ export default function SuggestedProfile({ profileDocId, username, profileId, us
         <div className='flex flex-row items-center align-items justify-between mb-2'>
             <div className='flex items-center justify-between'>
                 <img className='rounded-full w-8 flex mr-3 h-8 object-cover'
-                    src={`/images/avatars/${username}.jpg` || '/images/avatars/default.jpg'}
+                    src={`/images/avatars/${username}.jpg`}
+                    onError={(e) => {
+                        e.target.src = '/images/avatars/default.png';
+                    }}
                     alt=''
                 />
                 <Link to={`/p/${username}`}>
