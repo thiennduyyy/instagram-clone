@@ -17,8 +17,8 @@ function User({username, fullName}) {
 
             </div>
             <div className='col-span-3'>
-                <p className='font-bold text-sm'>{username}</p>
-                <p className='text-sm'>{fullName}</p>
+                <p className='font-semibold text-lg'>{username}</p>
+                <p className='text-lg text-gray-text'>{fullName}</p>
             </div>
         </Link>
     ))

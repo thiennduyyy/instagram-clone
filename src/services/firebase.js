@@ -36,15 +36,19 @@ export async function getUserByUserId(userId) {
 }
 
 export async function getSuggestedProfiles(userId, following) {
-    const result = await firebase
-    .firestore()
-    .collection('users')
-    .limit(5)
-    .get()
-    return result.docs
-    .map((user) => ({...user.data(), docId: user.id}))
-    .filter((profile) => profile.userId !== userId && !following.includes(profile.userId))
-}
+      const result = await firebase
+      .firestore()
+      .collection('users')
+      .where('userId', 'not-in', [...following, userId])
+      .limit(4)
+      .get()
+      // const allProfiles = result.docs
+      // .map((user) => ({...user.data(), docId: user.id}))
+      // console.log(allProfiles)
+      // const profiles = allProfiles.filter((profile) => profile.userId !== userId && !following.includes(profile.userId))
+      const profiles = result.docs.map((user) => ({...user.data(), docId: user.id}))
+      return profiles
+  }
 
 export async function updateLoggedInUserFollowing(
   loggedInUserDocId,
@@ -104,7 +108,8 @@ export async function getPhotos(userId, following) {
     return photosWithUserDetails;
   }
 
-export async function getUserPhotosByUserId(userId) {
+export async function getUserPhotosByUserId(userId, loggedInUserId) {
+  console.log(loggedInUserId)
   const result = await firebase
     .firestore()
     .collection('photos')
@@ -115,7 +120,18 @@ export async function getUserPhotosByUserId(userId) {
     ...photo.data(),
     docId: photo.id
   }));
-  return photos;
+  const photosWithUserDetails = await Promise.all(
+    photos.map(async (photo) => {
+      let userLikedPhoto = false;
+      if (photo.likes.includes(loggedInUserId)) {
+        userLikedPhoto = true;
+      }
+      const user = await getUserByUserId(photo.userId);
+      const { username } = user[0];
+      return { username, ...photo, userLikedPhoto };
+    })
+  );
+  return photosWithUserDetails;
 }
 export async function isUserFollowingProfile(loggedInUserUsername, profileUserId) {
   const result = await firebase

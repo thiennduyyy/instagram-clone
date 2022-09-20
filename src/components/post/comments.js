@@ -19,12 +19,12 @@ export default function Comments({ docId, comments: allComments, posted, comment
                 {comments.slice(0,3).map((item) => (
                     <p key={`${item.comment}-${item.displayName}`} className='mb-1'>
                         <Link to={`/p/${item.displayName}`}>
-                            <span className="mr-1 font-bold">{item.displayName}</span>
+                            <span className="mr-1 font-semibold text-lg">{item.displayName}</span>
                         </Link>
-                        <span>{item.comment}</span>
+                        <span className="text-lg">{item.comment}</span>
                     </p>
                 ))}
-                <p className="text-gray-base uppercase text-xs mt-2">
+                <p className="text-gray-base uppercase text-xs mt-4">
                     {formatDistance(posted, new Date())} ago
                 </p>
             </div>

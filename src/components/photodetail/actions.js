@@ -1,5 +1,4 @@
-import { useContext, useState } from "react";
-import PropTypes from 'prop-types'
+import { useContext } from "react";
 import FirebaseContext from "../../context/firebase";
 import UserContext from "../../context/user";
 
@@ -62,11 +61,4 @@ export default function Actions({ docId, totalLikes, likedPhoto, handleFocus, ha
             </div>
         </>
     )
-}
-
-Actions.propTypes = {
-    docId: PropTypes.string.isRequired,
-    totalLikes: PropTypes.number.isRequired,
-    likedPhoto: PropTypes.bool.isRequired,
-    handleFocus: PropTypes.func.isRequired
 }

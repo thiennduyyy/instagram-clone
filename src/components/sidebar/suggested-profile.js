@@ -14,9 +14,9 @@ export default function SuggestedProfile({ profileDocId, username, profileId, us
     }
 
     return !followed ? (
-        <div className='flex flex-row items-center align-items justify-between mb-2'>
+        <div className='flex flex-row items-center align-items justify-between mb-4'>
             <div className='flex items-center justify-between'>
-                <img className='rounded-full w-8 flex mr-3 h-8 object-cover'
+                <img className='rounded-full w-9 h-9 flex mr-3 object-cover'
                     src={`/images/avatars/${username}.jpg`}
                     onError={(e) => {
                         e.target.src = '/images/avatars/default.png';
@@ -24,11 +24,11 @@ export default function SuggestedProfile({ profileDocId, username, profileId, us
                     alt=''
                 />
                 <Link to={`/p/${username}`}>
-                    <p className='font-bold text-sm'>{username}</p>
+                    <p className='font-semibold text-base'>{username}</p>
                 </Link>
             </div>
             <div>
-                <button className='text-sm font-bold text-blue-medium'
+                <button className='text-base font-semibold text-blue-medium'
                     type='button'
                     onClick={handleFollowUser}
                 >

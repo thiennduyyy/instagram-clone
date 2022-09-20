@@ -1,3 +1,4 @@
+
 import { useContext, useState } from "react";
 import PropTypes from 'prop-types'
 import FirebaseContext from "../../context/firebase";
@@ -23,8 +24,8 @@ export default function AddComment({ docId, comments, setComments, commentInput}
                 comments: FieldValue.arrayUnion({displayName, comment})
             })
     }
-    return(
-    <div className="">
+    return (
+    <div className="border-t border-gray-primary py-2 mt-4">
         <form className="flex justify-between pl-0 pr-5"
             method="POST"
             onSubmit={(event) => comment.length >= 1 ? handleSubmitComment(event) : event.preventDefault()}
@@ -42,7 +43,7 @@ export default function AddComment({ docId, comments, setComments, commentInput}
                 onChange={(event) => setComment(event.target.value)}
                 ref={commentInput}
             />
-            <button className={`text-lg font-bold text-blue-medium ${!comment && 'opacity-25'}`}
+            <button className={`text-sm font-bold text-blue-medium ${!comment && 'opacity-25'}`}
                 type='button'
                 disabled={comment.length < 1}
                 onClick={handleSubmitComment}

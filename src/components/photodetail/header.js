@@ -1,12 +1,11 @@
-import { Link } from "react-router-dom";
-import PropTypes from 'prop-types'
+import { Link } from "react-router-dom"
 
 export default function Header({ username }) {
     return (
-        <div className="flex justify-between border-b-md border-gray-primary h-4 p-4 py-8">
+        <div className="flex justify-between border-b border border-gray-primary h-20 p-4 py-8">
             <div className="flex items-center">
                 <Link to={`/p/${username}`} className='flex items-center'>
-                    <img className="rounded-full h-10 w-10 flex mr-3"
+                    <img className="rounded-full h-10 w-10 flex mr-2 object-cover"
                         src={`/images/avatars/${username}.jpg`}
                         alt={`${username} profile`}
                     />
@@ -18,8 +17,4 @@ export default function Header({ username }) {
             </div>
         </div>
     )
-}
-
-Header.propTypes = {
-    username: PropTypes.string.isRequired
 }

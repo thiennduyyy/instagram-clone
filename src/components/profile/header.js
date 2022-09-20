@@ -18,11 +18,10 @@ export default function Header({
       following,
       username: profileUsername
 }}) {
-    const [got, setGot] = useState(false)
     const [isFollowingProfile, setIsFollowingProfile] = useState(null)
     const { user } = useUser()
     console.log(user)
-    const activeBtnFollow = got && user.username && user.username !== profileUsername
+    const activeBtnFollow = user.username && user.username !== profileUsername
     const handleToggleFollow = async () => {
         setIsFollowingProfile((isFollowingProfile) => !isFollowingProfile)
         setFollowerCount({
@@ -39,7 +38,6 @@ export default function Header({
         if (user?.username && profileUserId) {
             isLoggedInUserFollowingProfile();
         }
-        setGot(true)
     }, [user?.username, profileUserId]);
     return (
         <div className="grid grid-cols-3 gap-4 justify-between mx-auto max-w-screen-lg">
@@ -52,13 +50,13 @@ export default function Header({
                     }}
                 />)}
             </div>
-            <div className="flex items-center justify-center flex-col col-span-2">
+            <div className="flex items-center justify-between flex-col col-span-2">
                 <div className="container flex items-center">
-                    <p className="text-2xl mr-4">{profileUsername}</p>
-                    {activeBtnFollow && (
+                    <p className="text-3xl font-light mr-4">{profileUsername}</p>
+                    {activeBtnFollow ? (
                     <>
                         <button
-                            className="bg-blue-medium font-bold text-sm rounded text-white w-20 h-8"
+                            className="bg-blue-medium font-medium text-base rounded text-white w-24 h-10"
                             type="button"
                             onClick={handleToggleFollow}
                             onKeyDown={(event) => {
@@ -70,31 +68,36 @@ export default function Header({
                             {isFollowingProfile ? 'Unfollow' : 'Follow'}
                         </button>
                         <button
-                            className="bg-white-medium font-bold text-sm border-black border rounded text-black w-20 h-8 ml-4"
+                            className="bg-white-medium font-medium text-base border-border-gray border rounded text-black w-24 h-10 ml-4"
                             type="button"
                         >
                             Message
                         </button>
                         <svg aria-label="Options" class="_ab6- ml-4 hover:cursor-pointer" color="#262626" fill="#262626" height="32" role="img" viewBox="0 0 24 24" width="32"><circle cx="12" cy="12" r="1.5"></circle><circle cx="6" cy="12" r="1.5"></circle><circle cx="18" cy="12" r="1.5"></circle></svg>
                     </>
-                    )}
+                    ) : <button
+                            className="bg-white-medium font-medium text-base border-border-gray border rounded text-black w-24 h-10 ml-4"
+                            type="button"
+                        >
+                            Edit profile
+                        </button>}
                 </div>
                 <div className="container flex mt-4">
                     {!followers || !following ? (
                     <Skeleton count={1} width={677} height={24}/>
                     ): (
                         <>
-                            <p className="mr-10">
+                            <p className="mr-10 text-xl">
                                 <span className="font-bold">{photosCount}</span>
                                 {` `}
-                                {photosCount === (0 || 1) ? 'photo' : 'photos' }
+                                {photosCount === (0 || 1) ? 'post' : 'posts' }
                             </p>
-                            <p className="mr-10">
+                            <p className="mr-10 text-xl">
                                 <span className="font-bold">{followerCount}</span>
                                 {` `}
                                 {followerCount === 1 ? 'follower' : 'followers'}
                             </p>
-                            <p className="mr-10">
+                            <p className="mr-10 text-xl">
                                 <span className="font-bold">{following.length}</span>
                                 {` `}
                                 following
@@ -103,7 +106,7 @@ export default function Header({
                     )}
                 </div>
                 <div className="container mt-4">
-                    <p className="font-medium">{!fullName ? <Skeleton count={1} height={24}/> : fullName}</p>
+                    <p className="font-medium text-xl">{!fullName ? <Skeleton count={1} height={24}/> : fullName}</p>
                 </div>
             </div>
         </div>
