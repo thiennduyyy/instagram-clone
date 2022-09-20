@@ -42,7 +42,7 @@ export default function AddComment({ docId, comments, setComments, commentInput}
                 onChange={(event) => setComment(event.target.value)}
                 ref={commentInput}
             />
-            <button className={`text-lg font-bold text-blue-medium ${!comment && 'opacity-25'}`}
+            <button className={`text-sm font-semibold text-blue-medium ${!comment && 'opacity-25'}`}
                 type='button'
                 disabled={comment.length < 1}
                 onClick={handleSubmitComment}

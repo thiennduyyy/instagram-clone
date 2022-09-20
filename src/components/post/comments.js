@@ -10,7 +10,7 @@ export default function Comments({ docId, comments: allComments, posted, comment
         )
     return (
         <>
-            <div className="p-4 pt-1 pb-4">
+            <div className="p-4 pt-1 pb-2">
                 {comments.length >= 3 && (
                     <p className="text-sm text-gray-base mb-1 cursor-pointer">
                         View all comments
@@ -24,7 +24,7 @@ export default function Comments({ docId, comments: allComments, posted, comment
                         <span className="text-sm">{item.comment}</span>
                     </p>
                 ))}
-                <p className="text-gray-base uppercase text-xs mt-4">
+                <p className="text-gray-base uppercase text-xs mt-3">
                     {formatDistance(posted, new Date())} ago
                 </p>
             </div>
