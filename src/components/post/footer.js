@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 export default function Footer({ caption, username }) {
     return (
         <div className='p-4 pt-2 pb-0'>
-            <span className='mr-1 font-semibold text-lg'>{username}</span>
-            <span className='text-lg'>{caption}</span>
+            <span className='mr-1 font-semibold text-sm'>{username}</span>
+            <span className='text-sm'>{caption}</span>
         </div>
     )
 }

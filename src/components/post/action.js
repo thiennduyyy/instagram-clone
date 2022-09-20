@@ -23,7 +23,7 @@ export default function Actions({ docId, totalLikes, likedPhoto, handleFocus, ha
                         viewBox="0 0 24 24"
                         stroke="currentColor"
                         tabIndex={0}
-                        className={`w-9 mr-4 select-none cursor-pointer focus:outline-none ${
+                        className={`w-7 mr-4 select-none cursor-pointer focus:outline-none ${
                         likedPhoto ? 'fill-red text-red-primary' : 'text-black-light'
                         }`}
                     >
@@ -41,7 +41,7 @@ export default function Actions({ docId, totalLikes, likedPhoto, handleFocus, ha
                             handleFocus();
                         }
                         }}
-                        className="w-8 text-black-light select-none cursor-pointer focus:outline-none"
+                        className="w-7 text-black-light select-none cursor-pointer focus:outline-none"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -58,7 +58,7 @@ export default function Actions({ docId, totalLikes, likedPhoto, handleFocus, ha
                 </div>
             </div>
             <div className="p-4 py-0">
-                <p className="font-semibold text-lg">{totalLikes < 2 ? `${totalLikes} like` : `${totalLikes} likes`}</p>
+                <p className="font-semibold text-sm">{totalLikes < 2 ? `${totalLikes} like` : `${totalLikes} likes`}</p>
             </div>
         </>
     )

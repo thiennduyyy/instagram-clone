@@ -24,11 +24,11 @@ export default function SuggestedProfile({ profileDocId, username, profileId, us
                     alt=''
                 />
                 <Link to={`/p/${username}`}>
-                    <p className='font-semibold text-base'>{username}</p>
+                    <p className='font-semibold text-sm'>{username}</p>
                 </Link>
             </div>
             <div>
-                <button className='text-base font-semibold text-blue-medium'
+                <button className='text-sm font-semibold text-blue-medium'
                     type='button'
                     onClick={handleFollowUser}
                 >

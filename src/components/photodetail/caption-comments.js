@@ -8,8 +8,8 @@ export default function CaptionAndComments({caption, comments, username}) {
                         src={`/images/avatars/${username}.jpg`}
                         alt={`${username} profile`}
                     />
-                    <p className="font-semibold text-lg">{username}</p>
-                    <p className="ml-2 text-lg">{caption}</p>
+                    <p className="font-semibold text-sm">{username}</p>
+                    <p className="ml-2 text-sm">{caption}</p>
                 </Link>
                 {comments.map(comment => 
                     <Link key={comment.caption} to={`/p/${comment.displayName}`} className='flex items-center px-4 py-4'>
@@ -20,9 +20,9 @@ export default function CaptionAndComments({caption, comments, username}) {
                         e.target.src = '/images/avatars/default.png';
                     }}
                         />
-                        <p className="font-semibold text-lg">{comment.displayName}</p>
+                        <p className="font-semibold text-sm">{comment.displayName}</p>
                         
-                        <p className="ml-2 text-lg">{comment.comment}</p>
+                        <p className="ml-2 text-sm">{comment.comment}</p>
                     </Link>    
                 )}
             </div>

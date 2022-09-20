@@ -17,7 +17,7 @@ export default function Header() {
                 <div className="text-gray-700 text-center flex items-center align-items cursor-pointer">
                     <h1 className="flex justify-center w-full">
                         <Link to={ROUTES.DASHBOARD} aria-label='Instagram text logo'>
-                            <img src="/images/logo.png" alt="Instagram" className="mt-2 w-10/12"></img>
+                            <img src="/images/logo.png" alt="Instagram" className="mt-2 w-8/12"></img>
                         </Link>
                     </h1>
                 </div>
@@ -27,7 +27,7 @@ export default function Header() {
                             <>
                                 <Link to={ROUTES.DASHBOARD} aria-label='Dashboard'>
                                     <svg
-                                    className="w-10 mr-6 text-black-light cursor-pointer"
+                                    className="w-8 mr-6 text-black-light cursor-pointer"
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
                                     viewBox="0 0 24 24"
@@ -52,7 +52,7 @@ export default function Header() {
                                     }}
                                 >
                                     <svg
-                                        className="w-10 mr-6 text-black-light cursor-pointer"
+                                        className="w-8 mr-6 text-black-light cursor-pointer"
                                         xmlns="http://www.w3.org/2000/svg"
                                         fill="none"
                                         viewBox="0 0 24 24"
@@ -69,7 +69,7 @@ export default function Header() {
                                 <div className="flex items-center cursor-pointer">
                                     {!!activeUser.username && (
                                         <Link to={`/p/${activeUser.username}`}>
-                                            <img className="rounded-full h-10 w-10 flex object-cover" 
+                                            <img className="rounded-full h-8 w-8 flex object-cover" 
                                                 src={`/images/avatars/${activeUser.username}.jpg`} 
                                                 alt={`${activeUser.username} profile`}
                                                 onError={(e) => {

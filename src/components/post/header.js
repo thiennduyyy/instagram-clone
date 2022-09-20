@@ -10,7 +10,7 @@ export default function Header({ username }) {
                         src={`/images/avatars/${username}.jpg`}
                         alt={`${username} profile`}
                     />
-                    <p className="font-semibold text-lg">{username}</p>
+                    <p className="font-semibold text-sm">{username}</p>
                 </Link>
             </div>
             <div className="flex items-center hover:cursor-pointer">

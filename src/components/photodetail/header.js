@@ -5,11 +5,11 @@ export default function Header({ username }) {
         <div className="flex justify-between border-b border border-gray-primary h-20 p-4 py-8">
             <div className="flex items-center">
                 <Link to={`/p/${username}`} className='flex items-center'>
-                    <img className="rounded-full h-10 w-10 flex mr-2 object-cover"
+                    <img className="rounded-full h-9 w-9 flex mr-2 object-cover"
                         src={`/images/avatars/${username}.jpg`}
                         alt={`${username} profile`}
                     />
-                    <p className="font-semibold text-lg">{username}</p>
+                    <p className="font-semibold text-sm">{username}</p>
                 </Link>
             </div>
             <div className="flex items-center hover:cursor-pointer">
