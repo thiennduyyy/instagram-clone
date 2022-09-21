@@ -28,7 +28,7 @@ export default function SuggestedProfile({ profileDocId, username, profileId, us
                 </Link>
             </div>
             <div>
-                <button className='text-sm font-semibold text-blue-medium'
+                <button className='text-xs font-semibold text-blue-medium'
                     type='button'
                     onClick={handleFollowUser}
                 >

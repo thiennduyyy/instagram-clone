@@ -52,11 +52,11 @@ export default function Header({
             </div>
             <div className="flex items-center justify-between flex-col col-span-2">
                 <div className="container flex items-center">
-                    <p className="text-2xl font-light mr-4">{profileUsername}</p>
+                    <p className="text-3xl font-light mr-4">{profileUsername}</p>
                     {activeBtnFollow ? (
                     <>
                         <button
-                            className="bg-blue-medium font-medium text-sm rounded text-white w-24 h-8"
+                            className={isFollowingProfile ? "bg-blue-medium font-medium text-sm rounded text-white w-24 h-8" : "bg-white-medium font-medium text-sm border-border-gray border rounded text-black w-24 h-8"}
                             type="button"
                             onClick={handleToggleFollow}
                             onKeyDown={(event) => {
@@ -65,7 +65,7 @@ export default function Header({
                                 }
                             }}
                         >   
-                            {isFollowingProfile ? 'Unfollow' : 'Follow'}
+                            {isFollowingProfile ? 'Following' : 'Follow'}
                         </button>
                         <button
                             className="bg-white-medium font-medium text-sm border-border-gray border rounded text-black w-24 h-8 ml-4"

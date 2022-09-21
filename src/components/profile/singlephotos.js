@@ -12,7 +12,7 @@ export default function SinglePhoto({ photo }) {
     }
     return (
         <div key={photo.docId} className='relative group hover:cursor-pointer' onClick={(event) => setShow(true)}>
-            <img src={photo.imageSrc} alt={photo.caption} className='h-80 w-80 object-cover'/>
+            <img src={photo.imageSrc} alt={photo.caption} className='h-72 w-80 object-cover'/>
             <div className='absolute bottom-0 left-0 bg-gray-200 z-10 w-full justify-evenly items-center h-full bg-black-faded group-hover:flex hidden'
             >
                 <p className='flex items-center text-white font-bold'>

@@ -11,13 +11,13 @@ export default function Header() {
     const { user: activeUser } = useUser()
     console.log(user)
     return (
-    <header className="h-20 bg-white border-b w-full border-gray-primary mb-8">
-        <div className="container mx-auto w-full max-w-screen-lg h-full">
-            <div className="flex justify-between w-full h-full">
+    <header className="h-16 bg-white border-b border-gray-primary mb-7">
+        <div className="container mx-auto max-w-header h-full">
+            <div className="flex justify-between h-full">
                 <div className="text-gray-700 text-center flex items-center align-items cursor-pointer">
                     <h1 className="flex justify-center w-full">
                         <Link to={ROUTES.DASHBOARD} aria-label='Instagram text logo'>
-                            <img src="/images/logo.png" alt="Instagram" className="mt-2 w-8/12"></img>
+                            <img src="/images/logo.png" alt="Instagram" className="mt-2 w-6/12"></img>
                         </Link>
                     </h1>
                 </div>
@@ -27,7 +27,7 @@ export default function Header() {
                             <>
                                 <Link to={ROUTES.DASHBOARD} aria-label='Dashboard'>
                                     <svg
-                                    className="w-8 mr-6 text-black-light cursor-pointer"
+                                    className="w-7 mr-6 text-black-light cursor-pointer"
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
                                     viewBox="0 0 24 24"
@@ -52,7 +52,7 @@ export default function Header() {
                                     }}
                                 >
                                     <svg
-                                        className="w-8 mr-6 text-black-light cursor-pointer"
+                                        className="w-7 mr-6 text-black-light cursor-pointer"
                                         xmlns="http://www.w3.org/2000/svg"
                                         fill="none"
                                         viewBox="0 0 24 24"
@@ -69,7 +69,7 @@ export default function Header() {
                                 <div className="flex items-center cursor-pointer">
                                     {!!activeUser.username && (
                                         <Link to={`/p/${activeUser.username}`}>
-                                            <img className="rounded-full h-8 w-8 flex object-cover" 
+                                            <img className="rounded-full h-6 w-6 flex object-cover" 
                                                 src={`/images/avatars/${activeUser.username}.jpg`} 
                                                 alt={`${activeUser.username} profile`}
                                                 onError={(e) => {

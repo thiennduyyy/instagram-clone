@@ -25,7 +25,7 @@ export default function AddComment({ docId, comments, setComments, commentInput}
             })
     }
     return (
-    <div className="border-t border-gray-primary py-2 mt-4">
+    <div className="border-t border-gray-primary mt-4">
         <form className="flex justify-between pl-0 pr-5"
             method="POST"
             onSubmit={(event) => comment.length >= 1 ? handleSubmitComment(event) : event.preventDefault()}

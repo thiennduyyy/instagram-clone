@@ -38,11 +38,11 @@ export default function PhotoDetail({ content, controller, modalClick }) {
     }
     return (
         <div className='fixed flex h-full top-0 bottom-0 left-0 right-0 bg-black-rgba z-10 hover:cursor-default' onClick={handleModalClick}>
-            <div className="flex container w-3/4 h-90 bg-white m-auto" onClick={event => event.stopPropagation()}>
-                <div className="w-3/5 bg-black-primary">
+            <div className="flex container w-63p h-95 bg-white m-auto" onClick={event => event.stopPropagation()}>
+                <div className="w-58p bg-black-primary">
                     <Photo imageSrc={content.imageSrc}/>
                 </div>
-                <div className="flex-col relative w-full h-full w-2/5 bg-white">      
+                <div className="flex-col relative w-full h-full w-42p bg-white">      
                     <div className="items-center align-items flex-auto">
                         <Header username={content.username}/>
                         <CaptionAndComments caption={content.caption} comments={comments} username={content.username}/>

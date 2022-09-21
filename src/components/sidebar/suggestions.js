@@ -25,6 +25,7 @@ export default function Suggestions({ userId, following, loggedInUserDocId }) {
         <div className='rounded flex flex-col'>
             <div className='text-sm flex items-center align-items justify-between mb-2'>
                 <p className='font-medium text-gray-text'>Suggestions for you</p>
+                <p className='font-medium text-xs text-black-primary hover:cursor-pointer'>See all</p>
             </div>
             <div className='mt-4 grid ap-5'>
                 {profiles.map((profile) => (

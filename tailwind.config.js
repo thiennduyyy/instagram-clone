@@ -10,6 +10,10 @@ module.exports = {
     fill: (theme) => ({
       red: theme('colors.red.primary')
     }),
+    maxWidth: {
+      desktop: '51.3125rem',
+      header: '58rem'
+    },
     colors: {
       white: '#ffffff',
       blue: {
@@ -33,7 +37,12 @@ module.exports = {
     },
     extend: {
       height: {
-        '90': '90%',
+        '95': '95%',
+      },
+      width: {
+        '63p': '63%',
+        '58p': '58%',
+        '42p': '42%',
       },
       colors: {
         'border-gray': 'rgb(209 213 219)'
