@@ -6,7 +6,7 @@ export default function Header({ username }) {
         <div className="flex justify-between border-b-md border-gray-primary h-4 p-4 py-8">
             <div className="flex items-center">
                 <Link to={`/p/${username}`} className='flex items-center'>
-                    <img className="rounded-full h-10 w-10 flex mr-3"
+                    <img className="rounded-full h-10 w-10 flex mr-3 object-cover"
                         src={`/images/avatars/${username}.jpg`}
                         alt={`${username} profile`}
                     />
