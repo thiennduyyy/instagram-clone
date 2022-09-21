@@ -2,7 +2,7 @@ import { useContext } from "react";
 import FirebaseContext from "../../context/firebase";
 import UserContext from "../../context/user";
 
-export default function Actions({ docId, totalLikes, likedPhoto, handleFocus, handleToggleLiked }) {
+export default function Actions({ docId, likedCount, likedPhoto, handleFocus, handleToggleLiked }) {
     const {
         user: { uid: userId = ''}
     } = useContext(UserContext)
@@ -57,7 +57,7 @@ export default function Actions({ docId, totalLikes, likedPhoto, handleFocus, ha
                 </div>
             </div>
             <div className="p-4 py-0">
-                <p className="font-semibold text-sm">{totalLikes < 2 ? `${totalLikes} like` : `${totalLikes} likes`}</p>
+                <p className="font-semibold text-sm">{likedCount < 2 ? `${likedCount} like` : `${likedCount} likes`}</p>
             </div>
         </>
     )

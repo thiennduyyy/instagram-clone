@@ -21,7 +21,7 @@ export default function Post( { content }) {
     console.log(content.userLikedPhoto)
     const handleToggleLiked = async () => {
         setLiked((liked) => !liked)
-
+        setLikedCount((likedCount) => (liked ? likedCount - 1 : likedCount + 1))
         await firebase
             .firestore()
             .collection('photos')
@@ -30,7 +30,6 @@ export default function Post( { content }) {
                 likes: liked ? FieldValue.arrayRemove(userId) 
                 : FieldValue.arrayUnion(userId)
             })
-        setLikedCount((likedCount) => (liked ? likedCount - 1 : likedCount + 1))
     }
 
     return <div className="rounded-lg col-span-3 border bg-white border-gray-primary mb-8">

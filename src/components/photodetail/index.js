@@ -6,6 +6,7 @@ import AddComment from "./add-comment"
 import CaptionAndComments from "./caption-comments"
 import Header from "./header"
 import Photo from "./photo"
+import { toggleLiked } from "../../services/firebase"
 
 export default function PhotoDetail({ content, controller, modalClick }) {
     console.log(content)
@@ -24,17 +25,10 @@ export default function PhotoDetail({ content, controller, modalClick }) {
     // const [liked, setLiked]  = useState(content.userLikedPhoto) 
     const handleFocus = () => commentInput.current.focus()
     console.log(content.userLikedPhoto)
-    const handleToggleLiked = async () => {
+    async function handleToggleLiked() {
         setLiked((liked) => !liked)
-        await firebase
-            .firestore()
-            .collection('photos')
-            .doc(content.docId)
-            .update({
-                likes: liked ? FieldValue.arrayRemove(userId) 
-                : FieldValue.arrayUnion(userId)
-            })
         setLikedCount((likedCount) => (liked ? likedCount - 1 : likedCount + 1))
+        await toggleLiked(liked, content.docId, userId)
     }
     return (
         <div className='fixed flex h-full top-0 bottom-0 left-0 right-0 bg-black-rgba z-10 hover:cursor-default' onClick={handleModalClick}>
@@ -50,7 +44,7 @@ export default function PhotoDetail({ content, controller, modalClick }) {
                     <div className="absolute bottom-0 w-full items-center align-items grow-0">
                         <Actions 
                             docId={content.docId}
-                            totalLikes={likedCount}
+                            likedCount={likedCount}
                             likedPhoto={liked}
                             handleToggleLiked={handleToggleLiked}
                             handleFocus={handleFocus}

@@ -148,6 +148,16 @@ export async function isUserFollowingProfile(loggedInUserUsername, profileUserId
 
   return response.userId;
 }
+
+export async function toggleLiked(liked, docId, userId) {
+  await firebase
+    .firestore()
+    .collection('photos')
+    .doc(docId)
+    .update({
+      likes: liked ? FieldValue.arrayRemove(userId) : FieldValue.arrayUnion(userId)})
+}
+
 export async function toggleFollow(isFollowingProfile, activeUserDocId, profileDocId, profileUserId, followingUserId ) {
   await updateLoggedInUserFollowing(activeUserDocId, profileUserId,isFollowingProfile)
   await updateFollowedUserFollowers(profileDocId, followingUserId, isFollowingProfile)
