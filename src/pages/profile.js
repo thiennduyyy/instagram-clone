@@ -11,14 +11,15 @@ export default function Profile() {
     const navigate = useNavigate()
     console.log(user)
     useEffect(() => {
-        async function checkUserExists() {
-          const [user] = await getUserByUsername(username);
-          if (user?.userId) {
-            setUser(user);
-          } else {
-            navigate(ROUTES.NOT_FOUND)
-          }
+      async function checkUserExists() {
+        const [user] = await getUserByUsername(username);
+        if (user?.userId) {
+          document.title = `${user.fullName} (@${user.username}) • Instagram photos and videos`
+          setUser(user);
+        } else {
+          navigate(ROUTES.NOT_FOUND)
         }
+      }
     
         checkUserExists();
       }, [username]);
